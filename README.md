@@ -7,7 +7,15 @@ SeniorSafe AI is an empathetic, AI-powered chatbot designed to help seniors and 
 
 ## Features
 
-- **🚨 Emergency Escalation System** - Automatically detects urgent situations and provides immediate action guidance (NEW!)
+- **🎙️ Voice Assistant (Speech Input/Output)** - Complete hands-free interaction for accessibility (NEW!)
+  - Speech recognition for voice input (speak instead of type)
+  - Text-to-speech for voice output (hear responses read aloud)
+  - Auto-read mode for fully hands-free operation
+  - Large, senior-friendly voice controls
+  - Adjustable speed, volume, and voice selection
+  - Emergency keyword detection in speech
+  - Works in Chrome, Edge, Safari
+- **🚨 Emergency Escalation System** - Automatically detects urgent situations and provides immediate action guidance
   - Real-time detection of active scams
   - Immediate "STOP" instructions for payments in progress
   - Device compromise alerts with disconnect instructions
@@ -124,9 +132,44 @@ AI: 🚨 URGENT: Device Compromised - Immediate Action Required
     [... detailed emergency response ...]
 ```
 
+### Voice Assistant (NEW) 🎙️
+- **Hands-Free Operation** - Complete voice-controlled interaction
+- **Speech Recognition** - Speak your messages instead of typing
+- **Text-to-Speech** - Hear responses read aloud automatically
+- **Large Voice Controls**:
+  - 🎤 **Speak Button** - Click and speak your message
+  - 🔊 **Read Aloud Button** - Hear last response
+  - ⏹️ **Stop Button** - Stop listening or reading
+  - ⚙️ **Settings** - Customize voice preferences
+- **Customizable Settings**:
+  - Auto-read mode (hands-free)
+  - Adjustable reading speed (0.5x - 1.5x)
+  - Volume control (0% - 100%)
+  - Voice selection (choose from available voices)
+- **Emergency Detection**: Recognizes urgent keywords in speech
+- **Keyboard Shortcuts**: Ctrl+Shift+V (speak), Ctrl+Shift+R (read)
+- **Privacy-First**: All processing happens locally in your browser
+
+**Example Voice Interaction:**
+```
+You: [Clicks 🎤 Speak button]
+System: "Listening... Speak now"
+You: "I need help with a phone scam my ZIP code is 90210"
+System: [Transcribes → Detects emergency + ZIP → Provides resources]
+AI: [Response is automatically read aloud if auto-read is on]
+```
+
+**Browser Compatibility**:
+- ✅ Chrome (Recommended)
+- ✅ Microsoft Edge
+- ✅ Safari (Mac/iOS)
+- ⚠️ Firefox (Limited)
+
 For detailed information about UI improvements, see [UI_IMPROVEMENTS.md](UI_IMPROVEMENTS.md)
 
 For complete local resources documentation, see [LOCAL_RESOURCES_GUIDE.md](LOCAL_RESOURCES_GUIDE.md)
+
+For voice assistant complete guide, see [VOICE_ASSISTANT_GUIDE.md](VOICE_ASSISTANT_GUIDE.md)
 
 For emergency escalation system details, see [EMERGENCY_ESCALATION_GUIDE.md](EMERGENCY_ESCALATION_GUIDE.md)
 
@@ -139,6 +182,7 @@ For emergency escalation system details, see [EMERGENCY_ESCALATION_GUIDE.md](EME
 ## Documentation
 
 - [UI Improvements Guide](UI_IMPROVEMENTS.md) - Detailed documentation of all UI enhancements
+- [Voice Assistant Guide](VOICE_ASSISTANT_GUIDE.md) - Complete speech input/output system documentation
 - [Local Resources Guide](LOCAL_RESOURCES_GUIDE.md) - Complete guide to ZIP code-based resource lookup
 - [Emergency Escalation Guide](EMERGENCY_ESCALATION_GUIDE.md) - Emergency detection and response system documentation
 - [Human Evaluation](Human%20evaluation/) - Guidelines for evaluating AI responses
@@ -147,8 +191,9 @@ For emergency escalation system details, see [EMERGENCY_ESCALATION_GUIDE.md](EME
 
 If you need help or have questions:
 1. Use the conversation starters on the main interface
-2. Type your question in plain language
-3. Review the welcome message for guidance
+2. Type your question in plain language OR click 🎤 to speak
+3. Enable voice auto-read for hands-free operation
+4. Review the welcome message for guidance
 
 ---
 

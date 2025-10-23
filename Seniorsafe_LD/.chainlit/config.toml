@@ -74,7 +74,7 @@ custom_css = "/public/custom.css"
 
 # Specify a Javascript file that can be used to customize the user interface.
 # The Javascript file can be served from the public directory.
-# custom_js = "/public/test.js"
+custom_js = "/public/voice-assistant.js"
 
 # Specify a custom font url - Using a more readable font for seniors
 custom_font = "https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"
