@@ -1,14 +1,156 @@
+/* Hide watermark */
 .watermark {
-display: none !important;
+    display: none !important;
 }
 
-.body {
-  background-image: ("/public/mediate.background.png");
+/* Senior-Friendly Typography - Larger, easier to read text */
+body {
+    font-size: 18px !important;
+    line-height: 1.6 !important;
 }
 
-.logo_light png {
-    width: 500px; /* Set your desired width */
-    height: auto; /* Maintain aspect ratio */
+/* Make all text slightly larger for better readability */
+.MuiTypography-root {
+    font-size: 1.1em !important;
+}
+
+/* Larger font for messages */
+.message-content {
+    font-size: 18px !important;
+    line-height: 1.8 !important;
+}
+
+/* Larger input text */
+.MuiInputBase-input {
+    font-size: 18px !important;
+}
+
+/* Enhanced contrast for better visibility */
+.MuiPaper-root {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Larger, more visible buttons */
+button {
+    min-height: 44px !important;
+    font-size: 16px !important;
+    padding: 12px 24px !important;
+}
+
+/* Conversation starters - larger and more visible */
+.step {
+    padding: 20px !important;
+    margin: 12px 0 !important;
+    border-radius: 12px !important;
+    transition: all 0.3s ease !important;
+}
+
+.step:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Larger starter labels */
+.step-label {
+    font-size: 18px !important;
+    font-weight: 600 !important;
+}
+
+/* Better spacing between messages */
+.message {
+    margin-bottom: 24px !important;
+}
+
+/* Larger icons for better visibility */
+.step-icon img {
+    width: 56px !important;
+    height: 56px !important;
+}
+
+/* Better focus indicators for accessibility */
+*:focus {
+    outline: 3px solid #2196f3 !important;
+    outline-offset: 2px !important;
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Logo styling */
+.logo_light,
+.logo_dark {
+    max-width: 400px !important;
+    height: auto !important;
     display: block;
-    margin: 0 auto; /* Center the logo */
+    margin: 0 auto !important;
+}
+
+/* Welcome message styling */
+.markdown {
+    font-size: 17px !important;
+    line-height: 1.7 !important;
+}
+
+.markdown h1 {
+    font-size: 2em !important;
+    margin-bottom: 0.5em !important;
+    color: #1976d2 !important;
+}
+
+.markdown h2 {
+    font-size: 1.6em !important;
+    margin-top: 1em !important;
+    margin-bottom: 0.5em !important;
+}
+
+.markdown h3 {
+    font-size: 1.3em !important;
+    margin-top: 0.8em !important;
+}
+
+.markdown ul, .markdown ol {
+    margin-left: 1.5em !important;
+    margin-bottom: 1em !important;
+}
+
+.markdown li {
+    margin-bottom: 0.5em !important;
+}
+
+/* Enhance code blocks readability */
+code {
+    font-size: 16px !important;
+    padding: 2px 6px !important;
+    border-radius: 4px !important;
+}
+
+/* Better link visibility */
+a {
+    color: #1976d2 !important;
+    text-decoration: underline !important;
+    font-weight: 500 !important;
+}
+
+a:hover {
+    color: #1565c0 !important;
+}
+
+/* Error/Warning messages - more visible */
+.error-message {
+    background-color: #ffebee !important;
+    border-left: 4px solid #f44336 !important;
+    padding: 16px !important;
+    margin: 12px 0 !important;
+    border-radius: 4px !important;
+}
+
+/* Success messages */
+.success-message {
+    background-color: #e8f5e9 !important;
+    border-left: 4px solid #4caf50 !important;
+    padding: 16px !important;
+    margin: 12px 0 !important;
+    border-radius: 4px !important;
 }
