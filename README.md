@@ -7,7 +7,8 @@ SeniorSafe AI is an empathetic, AI-powered chatbot designed to help seniors and 
 
 ## Features
 
-- **6 Quick-Start Conversation Options** - Pre-configured prompts for common scam scenarios
+- **7 Quick-Start Conversation Options** - Pre-configured prompts for common scam scenarios
+- **Local Resources Lookup** - Automatic ZIP code-based lookup for local police, state consumer protection, and federal agencies (all 50 states + DC)
 - **Senior-Friendly Interface** - Large fonts, high contrast, easy-to-read design
 - **Step-by-Step Guidance** - Clear instructions in simple language
 - **Multiple Scam Type Support** - Identity theft, financial fraud, tech support scams, phishing, and more
@@ -55,9 +56,10 @@ chainlit run seniorsafe_chat_ui_v1.py
 The interface has been enhanced with senior-friendly features:
 
 ### Conversation Starters
-- 6 pre-configured quick-start options for common scenarios
+- 7 pre-configured quick-start options for common scenarios
 - Visual icons for easy identification
 - One-click access to guided conversations
+- NEW: "Find Local Help" starter for ZIP code-based resource lookup
 
 ### Accessibility Features
 - **Larger Text**: 18px base font size for better readability
@@ -71,7 +73,27 @@ The interface has been enhanced with senior-friendly features:
 - Step-by-step instructions in simple language
 - Clean, uncluttered interface design
 
+### Local Resources Lookup (NEW)
+- **Automatic ZIP Code Detection** - System detects ZIP codes in your messages
+- **Comprehensive Database** - Covers all 50 US states plus DC
+- **Multiple Resource Types**:
+  - State Consumer Protection Offices
+  - Federal Agencies (FTC, FBI IC3, IdentityTheft.gov, IRS, SSA, USPS)
+  - Local Law Enforcement Guidance
+- **Smart Prompting** - Asks for ZIP code when you need local help
+- **Easy to Use** - Just provide your ZIP code and get instant local resources
+
+**Example Usage:**
+```
+You: "Where can I report this scam?"
+AI: "Please provide your ZIP code..."
+You: "10001"
+AI: [Provides NY state resources, federal agencies, and local guidance]
+```
+
 For detailed information about UI improvements, see [UI_IMPROVEMENTS.md](UI_IMPROVEMENTS.md)
+
+For complete local resources documentation, see [LOCAL_RESOURCES_GUIDE.md](LOCAL_RESOURCES_GUIDE.md)
 
 ## Available Versions
 
@@ -82,6 +104,7 @@ For detailed information about UI improvements, see [UI_IMPROVEMENTS.md](UI_IMPR
 ## Documentation
 
 - [UI Improvements Guide](UI_IMPROVEMENTS.md) - Detailed documentation of all UI enhancements
+- [Local Resources Guide](LOCAL_RESOURCES_GUIDE.md) - Complete guide to ZIP code-based resource lookup
 - [Human Evaluation](Human%20evaluation/) - Guidelines for evaluating AI responses
 
 ## Support

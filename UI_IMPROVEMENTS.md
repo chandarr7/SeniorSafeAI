@@ -20,6 +20,7 @@ This document outlines the comprehensive UI improvements made to SeniorSafe AI t
 4. **Reporting a Scam** - Information on who to contact
 5. **Tech Support Scam** - Help after tech support scam calls
 6. **Phishing Email** - Steps after clicking suspicious links
+7. **Find Local Help** - Get local resources based on ZIP code
 
 **Files Modified:**
 - `Seniorsafe_LD/seniorsafe_chat_ui_v1.py`
@@ -107,6 +108,43 @@ This document outlines the comprehensive UI improvements made to SeniorSafe AI t
 
 **Files Modified:**
 - `Seniorsafe_LD/seniorsafe_chat_ui_v1.py`
+
+### 6. Local Resources Lookup (NEW)
+
+**Automatic ZIP Code-Based Resource Finder:**
+- Detects ZIP codes in user messages automatically
+- Provides local law enforcement and consumer protection office contacts
+- Covers all 50 US states plus DC
+- Includes federal agencies (FTC, FBI IC3, IdentityTheft.gov, etc.)
+
+**Features:**
+- Smart keyword detection for resource requests
+- Automatic ZIP code extraction from natural language
+- Comprehensive database of state consumer protection offices
+- Federal agency contact information
+- Local police department guidance
+- Formatted, easy-to-read output with action steps
+
+**How It Works:**
+1. User asks for local help (e.g., "Where can I report this?")
+2. System prompts for ZIP code if not provided
+3. User provides ZIP code (e.g., "10001" or "My ZIP is 90210")
+4. System returns comprehensive list of local, state, and federal resources
+
+**Coverage:**
+- All 50 US states with verified contact information
+- District of Columbia
+- 6 federal agencies with specific reporting functions
+- Local law enforcement guidance
+
+**Files Added:**
+- `Seniorsafe_LD/local_resources.py` - Complete lookup system
+
+**Files Modified:**
+- `Seniorsafe_LD/seniorsafe_chat_ui_v1.py` - Integration with chat flow
+
+**Documentation:**
+- See [LOCAL_RESOURCES_GUIDE.md](LOCAL_RESOURCES_GUIDE.md) for detailed documentation
 
 ## Accessibility Standards
 
