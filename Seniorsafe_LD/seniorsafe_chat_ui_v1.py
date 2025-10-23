@@ -3,8 +3,10 @@ from langchain.prompts import ChatPromptTemplate
 from langchain.schema import StrOutputParser
 from langchain.schema.runnable import Runnable
 from langchain.schema.runnable.config import RunnableConfig
+import re
 
 import chainlit as cl
+from local_resources import get_local_resources, ZIPCodeValidator
 
 @cl.set_starters
 async def set_starters():
@@ -38,6 +40,11 @@ async def set_starters():
             label="Phishing Email",
             message="I clicked on a suspicious link in an email. What are my next steps?",
             icon="/public/identity_theft.png",
+        ),
+        cl.Starter(
+            label="Find Local Help",
+            message="I need to find local resources to report this crime. Can you help me find agencies in my area?",
+            icon="/public/report_scam.png",
         )
     ]
 
@@ -51,7 +58,9 @@ async def on_chat_start():
                 "You are a knowledgeable, empathetic, and honest assistant designed to help victims of cybercrime. "
                 "Provide clear, step-by-step advice in simple language that seniors can easily understand. "
                 "Be patient, supportive, and reassuring. Break down complex technical concepts into easy-to-follow instructions. "
-                "Always prioritize the user's safety and security.",
+                "Always prioritize the user's safety and security. "
+                "When users need to report a crime, remind them that they can provide their ZIP code to get local resource information. "
+                "Encourage them to report incidents to both local and federal authorities.",
             ),
             ("human", "{question}"),
         ]
@@ -68,10 +77,52 @@ async def on_chat_start():
     ).send()
 
 
+def extract_zip_code(text: str) -> str:
+    """Extract ZIP code from text"""
+    # Look for 5-digit ZIP codes
+    zip_pattern = r'\b\d{5}(?:-\d{4})?\b'
+    matches = re.findall(zip_pattern, text)
+    if matches:
+        return matches[0]
+    return None
+
+
+async def check_for_local_resources_request(message_content: str) -> bool:
+    """Check if user is asking for local resources"""
+    keywords = ['local', 'police', 'report', 'where', 'who', 'agency', 'department',
+                'office', 'contact', 'area', 'zip', 'zip code', 'resources', 'help near me']
+    message_lower = message_content.lower()
+    return any(keyword in message_lower for keyword in keywords)
+
+
 @cl.on_message
 async def on_message(message: cl.Message):
     runnable = cl.user_session.get("runnable")  # type: Runnable
 
+    # Check if message contains a ZIP code
+    zip_code = extract_zip_code(message.content)
+
+    # If ZIP code found and user seems to be asking for local resources
+    if zip_code and await check_for_local_resources_request(message.content):
+        # Provide local resources
+        resources_info = get_local_resources(zip_code)
+        await cl.Message(content=resources_info).send()
+        return
+
+    # If user is asking for local resources but no ZIP code provided
+    if await check_for_local_resources_request(message.content) and not zip_code:
+        # Check if we should ask for ZIP code
+        ask_zip_keywords = ['local', 'near me', 'area', 'where', 'report', 'police', 'office']
+        if any(keyword in message.content.lower() for keyword in ask_zip_keywords):
+            prompt_msg = ("To find local resources in your area, I'll need your ZIP code. "
+                         "Please provide your 5-digit ZIP code, and I'll give you contact information "
+                         "for local police departments, state consumer protection offices, and other "
+                         "agencies that can help you report this cybercrime.\n\n"
+                         "For example, you can say: 'My ZIP code is 10001' or just type the ZIP code.")
+            await cl.Message(content=prompt_msg).send()
+            return
+
+    # Regular AI response
     msg = cl.Message(content="")
 
     async for chunk in runnable.astream(
