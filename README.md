@@ -7,7 +7,13 @@ SeniorSafe AI is an empathetic, AI-powered chatbot designed to help seniors and 
 
 ## Features
 
-- **7 Quick-Start Conversation Options** - Pre-configured prompts for common scam scenarios
+- **🚨 Emergency Escalation System** - Automatically detects urgent situations and provides immediate action guidance (NEW!)
+  - Real-time detection of active scams
+  - Immediate "STOP" instructions for payments in progress
+  - Device compromise alerts with disconnect instructions
+  - Bank fraud detection with instant bank contact guidance
+  - Threat response protocols
+- **8 Quick-Start Conversation Options** - Including dedicated "🚨 URGENT Help" button for emergencies
 - **Local Resources Lookup** - Automatic ZIP code-based lookup for local police, state consumer protection, and federal agencies (all 50 states + DC)
 - **Senior-Friendly Interface** - Large fonts, high contrast, easy-to-read design
 - **Step-by-Step Guidance** - Clear instructions in simple language
@@ -56,9 +62,10 @@ chainlit run seniorsafe_chat_ui_v1.py
 The interface has been enhanced with senior-friendly features:
 
 ### Conversation Starters
-- 7 pre-configured quick-start options for common scenarios
+- 8 pre-configured quick-start options for common scenarios
 - Visual icons for easy identification
 - One-click access to guided conversations
+- NEW: "🚨 URGENT Help" starter with pulsing alert for emergency situations
 - NEW: "Find Local Help" starter for ZIP code-based resource lookup
 
 ### Accessibility Features
@@ -91,9 +98,37 @@ You: "10001"
 AI: [Provides NY state resources, federal agencies, and local guidance]
 ```
 
+### Emergency Escalation System (NEW) 🚨
+- **Automatic Urgency Detection** - System analyzes messages for emergency keywords
+- **Real-Time Intervention** - Interrupts active scams with immediate guidance
+- **Four Urgency Levels**:
+  - CRITICAL: Active scams (seconds matter)
+  - HIGH: Recent incidents (hours matter)
+  - MEDIUM: Concerns (days matter)
+  - LOW: General inquiries
+- **Specific Emergency Scenarios**:
+  - Active bank fraud with withdrawal in progress
+  - Device compromised with remote access
+  - Currently on phone with scammer
+  - About to make fraudulent payment
+  - Receiving threats or blackmail
+- **Visual Alerts**: High-contrast red alerts with pulsing animation
+- **Immediate Action Steps**: Clear, numbered instructions prioritized by urgency
+
+**Example Emergency Detection:**
+```
+You: "Someone is controlling my computer right now!"
+AI: 🚨 URGENT: Device Compromised - Immediate Action Required
+    1. DISCONNECT FROM INTERNET IMMEDIATELY
+    2. SHUT DOWN your computer
+    [... detailed emergency response ...]
+```
+
 For detailed information about UI improvements, see [UI_IMPROVEMENTS.md](UI_IMPROVEMENTS.md)
 
 For complete local resources documentation, see [LOCAL_RESOURCES_GUIDE.md](LOCAL_RESOURCES_GUIDE.md)
+
+For emergency escalation system details, see [EMERGENCY_ESCALATION_GUIDE.md](EMERGENCY_ESCALATION_GUIDE.md)
 
 ## Available Versions
 
@@ -105,6 +140,7 @@ For complete local resources documentation, see [LOCAL_RESOURCES_GUIDE.md](LOCAL
 
 - [UI Improvements Guide](UI_IMPROVEMENTS.md) - Detailed documentation of all UI enhancements
 - [Local Resources Guide](LOCAL_RESOURCES_GUIDE.md) - Complete guide to ZIP code-based resource lookup
+- [Emergency Escalation Guide](EMERGENCY_ESCALATION_GUIDE.md) - Emergency detection and response system documentation
 - [Human Evaluation](Human%20evaluation/) - Guidelines for evaluating AI responses
 
 ## Support

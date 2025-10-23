@@ -154,3 +154,141 @@ a:hover {
     margin: 12px 0 !important;
     border-radius: 4px !important;
 }
+
+/* ==================== EMERGENCY ALERT STYLING ==================== */
+
+/* Emergency message container - high visibility red */
+.message-content:has(h1:contains("🚨")) {
+    background-color: #ffebee !important;
+    border: 3px solid #c62828 !important;
+    border-radius: 8px !important;
+    padding: 24px !important;
+    margin: 16px 0 !important;
+    animation: emergency-pulse 2s ease-in-out infinite;
+}
+
+/* Emergency alert headers - bold red */
+.markdown h1:contains("🚨"),
+.markdown h1:contains("URGENT"),
+.markdown h1:contains("STOP") {
+    color: #c62828 !important;
+    font-size: 2.2em !important;
+    font-weight: 700 !important;
+    margin-bottom: 1em !important;
+    text-align: center !important;
+    animation: emergency-pulse 2s ease-in-out infinite;
+}
+
+/* "DO THIS RIGHT NOW" section styling */
+.markdown h2:contains("🔴"),
+.markdown h2:contains("RIGHT NOW") {
+    background-color: #c62828 !important;
+    color: white !important;
+    padding: 16px !important;
+    border-radius: 6px !important;
+    font-size: 1.8em !important;
+    font-weight: 700 !important;
+    margin: 20px 0 16px 0 !important;
+    text-align: center !important;
+}
+
+/* Emergency contact section */
+.markdown h2:contains("📞"),
+.markdown h2:contains("Emergency Contacts") {
+    background-color: #ff9800 !important;
+    color: white !important;
+    padding: 12px !important;
+    border-radius: 6px !important;
+    font-size: 1.6em !important;
+    margin: 20px 0 12px 0 !important;
+}
+
+/* Urgent action items - larger, bolder */
+.message-content:has(h1:contains("🚨")) ol,
+.message-content:has(h1:contains("🚨")) ul {
+    font-size: 19px !important;
+    line-height: 2 !important;
+    margin-left: 2em !important;
+}
+
+.message-content:has(h1:contains("🚨")) li {
+    margin-bottom: 16px !important;
+    padding: 8px !important;
+    background-color: #fff3e0 !important;
+    border-left: 4px solid #ff6f00 !important;
+    border-radius: 4px !important;
+}
+
+.message-content:has(h1:contains("🚨")) li strong {
+    color: #c62828 !important;
+    font-size: 1.1em !important;
+}
+
+/* Emergency horizontal rules - thicker, red */
+.message-content:has(h1:contains("🚨")) hr {
+    border: 2px solid #ef5350 !important;
+    margin: 24px 0 !important;
+}
+
+/* Emergency bold text */
+.message-content:has(h1:contains("🚨")) strong {
+    color: #c62828 !important;
+    font-weight: 700 !important;
+}
+
+/* Pulse animation for urgent alerts */
+@keyframes emergency-pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.85;
+    }
+}
+
+/* Emergency emoji sizing */
+.message-content:has(h1:contains("🚨")) h1::before,
+.message-content:has(h1:contains("STOP")) h1::before {
+    font-size: 1.3em !important;
+}
+
+/* Urgent starter button styling */
+.step:has([label*="URGENT"]),
+.step:has([label*="🚨"]) {
+    background-color: #ffebee !important;
+    border: 2px solid #c62828 !important;
+    animation: urgent-glow 2s ease-in-out infinite;
+}
+
+@keyframes urgent-glow {
+    0%, 100% {
+        box-shadow: 0 0 10px rgba(198, 40, 40, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(198, 40, 40, 0.8);
+    }
+}
+
+/* Follow-up actions section - calmer green */
+.markdown h2:contains("✅"),
+.markdown h2:contains("After Immediate Actions") {
+    background-color: #66bb6a !important;
+    color: white !important;
+    padding: 12px !important;
+    border-radius: 6px !important;
+    font-size: 1.5em !important;
+    margin: 20px 0 12px 0 !important;
+}
+
+/* Priority indicators */
+.message-content:has(h1:contains("🚨")) p:contains("Priority: CRITICAL"),
+.message-content:has(h1:contains("🚨")) p:contains("Priority: HIGHEST") {
+    color: #c62828 !important;
+    font-weight: 700 !important;
+    font-size: 1.1em !important;
+}
+
+.message-content:has(h1:contains("🚨")) p:contains("Priority: HIGH") {
+    color: #ff6f00 !important;
+    font-weight: 700 !important;
+}

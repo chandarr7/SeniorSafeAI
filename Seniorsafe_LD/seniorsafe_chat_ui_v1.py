@@ -7,6 +7,7 @@ import re
 
 import chainlit as cl
 from local_resources import get_local_resources, ZIPCodeValidator
+from emergency_escalation import check_for_emergency
 
 @cl.set_starters
 async def set_starters():
@@ -44,6 +45,11 @@ async def set_starters():
         cl.Starter(
             label="Find Local Help",
             message="I need to find local resources to report this crime. Can you help me find agencies in my area?",
+            icon="/public/report_scam.png",
+        ),
+        cl.Starter(
+            label="🚨 URGENT Help",
+            message="This is urgent! Someone is trying to scam me right now or I need immediate help.",
             icon="/public/report_scam.png",
         )
     ]
@@ -99,7 +105,14 @@ async def check_for_local_resources_request(message_content: str) -> bool:
 async def on_message(message: cl.Message):
     runnable = cl.user_session.get("runnable")  # type: Runnable
 
-    # Check if message contains a ZIP code
+    # PRIORITY 1: Check for emergency situations FIRST
+    is_emergency, emergency_response = check_for_emergency(message.content)
+    if is_emergency:
+        # Send emergency response with special formatting
+        await cl.Message(content=emergency_response).send()
+        return
+
+    # PRIORITY 2: Check if message contains a ZIP code for local resources
     zip_code = extract_zip_code(message.content)
 
     # If ZIP code found and user seems to be asking for local resources
@@ -122,7 +135,7 @@ async def on_message(message: cl.Message):
             await cl.Message(content=prompt_msg).send()
             return
 
-    # Regular AI response
+    # Regular AI response for non-emergency situations
     msg = cl.Message(content="")
 
     async for chunk in runnable.astream(
